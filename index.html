@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I love </title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec;
+    }
+    .screen {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 150vh;
+      text-align: center;
+    }
+    .active {
+      display: flex;
+    }
+    .password-screen {
+      flex-direction: column;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .key {
+      background-color: #f8bbd0;
+      border: none;
+      border-radius: 30px;
+      font-size: 30px;
+      padding: 30px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .key:hover {
+      background-color: #f48fb1;
+    }
+    .input-display {
+      font-size: 26px;
+      margin-top: 22px;
+      letter-spacing: 12px;
+    }
+    .notepad {
+      background-color: #fff0f6;
+      border: 3px solid #f8bbd0;
+      padding: 30px;
+      border-radius: 30px;
+      width: 90%;
+      max-width: 500px;
+      text-align: left;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      line-height: 1.6;
+    }
+    .notepad h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<!-- Video de fondo oculto - Amor Completo de Mon Laferte -->
+<div id="ytPlayerContainer" style="display: none;">
+  <iframe id="ytPlayer" width="0" height="0" frameborder="0"
+    src="https://www.youtube.com/embed/VlZK2bSVt9U?autoplay=1&loop=1&playlist=VlZK2bSVt9U"
+    allow="autoplay"></iframe>
+</div>
+
+<body>
+<div id="passwordScreen" class="screen password-screen active">
+  <h2>🔒 Enter password</h2>
+  <div class="input-display" id="inputDisplay">••••</div>
+  <div class="keypad">
+    <button class="key" onclick="enterDigit('1')">1</button>
+    <button class="key" onclick="enterDigit('2')">2</button>
+    <button class="key" onclick="enterDigit('3')">3</button>
+    <button class="key" onclick="enterDigit('4')">4</button>
+    <button class="key" onclick="enterDigit('5')">5</button>
+    <button class="key" onclick="enterDigit('6')">6</button>
+    <button class="key" onclick="enterDigit('7')">7</button>
+    <button class="key" onclick="enterDigit('9')">9</button>
+    <button class="key" onclick="enterDigit('8')">8</button>
+    <div></div>
+    <button class="key" onclick="enterDigit('0')">0</button>
+    <div></div>
+  </div>
+</div>
+<div id="notepadScreen" class="screen">
+  <div class="notepad">
+    <h3>27 julio 2025  </h3>
+
+
+
+
+    <h4> Querida Danna Paola Palacio Correa </h4>
+
+
+
+    <p>
+      Desde que llegaste a mi vida, entendí que el amor no se busca, se encuentra... como una estrella fugaz que ilumina la oscuridad y deja una huella imposible de olvidar. Tú eres mi milagro, mi creación favorita de Dios, la prueba de que lo divino también camina entre nosotros.
+    </p>
+    <p>
+     A veces me cuesta encontrar palabras que estén a la altura de lo que siento por ti. ¿Cómo describir algo tan inmenso, tan perfecto, tan único como lo que tú y yo compartimos? Es como tratar de encerrar el cielo en un suspiro, o explicar con tinta la belleza de una constelación que sólo se revela a los ojos del alma.
+    </p>
+    <p>
+     No eres solo alguien que amo. Eres el pensamiento que me calma, la voz que me guía, la sonrisa que me salva. En un mundo donde todo parece pasar tan rápido, tú eres mi eternidad.
+    </p>
+    <p>
+        Eres como las constelaciones: siempre estás ahí, incluso cuando no te veo, brillando en lo más profundo de mi cielo interior. Eres especial como cada creación de Dios, irrepetible como una obra de arte hecha con manos celestiales.
+    </p>
+    <p>
+      Quiero que sepas que no hay un día en el que no piense en ti con ternura, con fuerza, con admiración. No hay instante en el que no te lleve conmigo, en mi risa, en mis silencios, en mis sueños.
+
+Este amor que siento por ti no se desgasta, no se enfría, no se apaga. Solo crece, florece, respira… y me llena.
+Gracias por existir. Gracias por ser tú.
+    </p>
+  </div>
+</div>
+<script>
+     const correctPassword = '0906';
+  let input = '';
+  function enterDigit(digit) {
+    if (input.length < 4) {
+      input += digit;
+    }
+    const display = document.getElementById('inputDisplay');
+    display.textContent = input.padEnd(4, '•');
+    if (input.length === 4) {
+        if (input === correctPassword) {
+  const passwordScreen = document.getElementById('passwordScreen');
+  const notepadScreen = document.getElementById('notepadScreen');
+
+  passwordScreen.style.opacity = '0';
+
+  setTimeout(() => {
+    passwordScreen.classList.remove('active');
+    notepadScreen.classList.add('active');
+
+    // Mostrar e iniciar el reproductor de YouTube
+    document.getElementById('ytPlayerContainer').style.display = 'block';
+  }, 300);
+        }
+    }}
+    
+    
+</script>
+</body>
+</html>
